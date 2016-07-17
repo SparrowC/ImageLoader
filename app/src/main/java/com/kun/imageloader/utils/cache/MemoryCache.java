@@ -1,19 +1,21 @@
-package com.kun.imageloader.utils;
+package com.kun.imageloader.utils.cache;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
 /**
- * Created by Vonnie on 2016/7/12.
+ * Created by kun on 16/7/16.
  */
-public class ImageCache {
+public class MemoryCache implements ImageCache {
     LruCache<String, Bitmap> mImageCache;
 
-    public ImageCache() {
-        initImageCache();
+    public MemoryCache() {
+        initCache();
     }
 
-    private void initImageCache() {
+
+    @Override
+    public void initCache() {
         final int memorySize = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = memorySize / 4;
         mImageCache = new LruCache<String, Bitmap>(cacheSize) {
@@ -24,11 +26,13 @@ public class ImageCache {
         };
     }
 
-    public void put(String url ,Bitmap bmp){
-
+    @Override
+    public void put(String url, Bitmap bmp) {
+        mImageCache.put(url, bmp);
     }
 
+    @Override
     public Bitmap get(String url) {
-        return null;
+        return mImageCache.get(url);
     }
 }

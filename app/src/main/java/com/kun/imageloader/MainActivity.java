@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             ImageLoader imageLoader = ImageLoader.getInstance();
+
             imageLoader.setCache(new DoubleCache());
             imageLoader.displayImage(urls[position], viewHolder.iv);
             return convertView;

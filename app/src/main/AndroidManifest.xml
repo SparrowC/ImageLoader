@@ -3,7 +3,10 @@
     package="com.kun.imageloader" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+=======
+>>>>>>> 566f682e66c04d259855e4553986f66ba8560226
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

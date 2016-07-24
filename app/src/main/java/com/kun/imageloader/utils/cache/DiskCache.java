@@ -2,17 +2,15 @@ package com.kun.imageloader.utils.cache;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 
-import com.jakewharton.disklrucache.DiskLruCache;
 import com.kun.imageloader.MainActivity;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
 
 /**
  * Created by kun on 16/7/16.
@@ -20,7 +18,6 @@ import java.security.NoSuchAlgorithmException;
 public class DiskCache implements ImageCache {
 
     final static String cacheDir = MainActivity.cachePath;
-
 //    static String cacheDir = null;
 
     public DiskCache() {
@@ -60,6 +57,7 @@ public class DiskCache implements ImageCache {
 //        }
 //    }
 
+
     @Override
     public void put(String url, Bitmap bmp) {
         FileOutputStream fos = null;
@@ -69,7 +67,7 @@ public class DiskCache implements ImageCache {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {//关闭输出流
-            if (fos != null)
+            if(fos!=null)
                 try {
                     fos.close();
                 } catch (IOException e) {
@@ -106,4 +104,5 @@ public class DiskCache implements ImageCache {
         }
         return reStr;
     }
+
 }

@@ -76,6 +76,7 @@ public class ImageLoader {
         });
     }
 
+
     private Bitmap downloadImage(String imageUrl) {
         Bitmap bmp = null;
         try {
